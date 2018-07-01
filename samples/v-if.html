@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-if&v-else&v-show示例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-if&v-else&v-show</h1>
+    <hr/>
+    <div id="app">
+        <div v-if="isLogin">你好：wangstudyvc</div>
+        <div v-else>请登录后操作</div>
+
+        <div v-show="isLogin">再次你好：wangstudyvc</div>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isLogin: false
+            }
+        });
+    </script>
+    <!-- v-if用来判断是否加载html的DOM -->
+    <!-- v-show调整css中display属性，DOM已经加载，只是CSS控制没有显示出来。 -->
+    <!-- v-if 和v-show的区别:v-if： 判断是否加载，可以减轻服务器的压力，在需要时加载;
+    v-show：调整css dispaly属性，可以使客户端操作更加流畅。 -->
+</body>
+
+</html>
