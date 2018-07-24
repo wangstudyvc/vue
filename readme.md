@@ -58,3 +58,9 @@ npm.taobao.org
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 命令同npm，不能publish。
 
+2、Vue2.0
+关注视图层的前端框架，类似react，相比较Vue1.0引入虚拟Dom。
+
+新建html文件的快捷键：!->TAB键
+
+下载vue文件，通过npm install vue完成。

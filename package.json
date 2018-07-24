@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/wangstudyvc/vue/issues"
   },
-  "homepage": "https://github.com/wangstudyvc/vue#readme"
+  "homepage": "https://github.com/wangstudyvc/vue#readme",
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
 }
