@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>挂载点</title>
+    <script src="../node_modules/vue/dist/vue.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            var app = new Vue({
+                el: "#div1",//设置挂载点，即vue对象关联的dom元素及其子节点。
+                data: {
+                    message: "Hello World.",
+                    name: "张三"
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <!-- vue挂载上div1及其子节点 -->
+    <div id="div1">{{message}}
+        <div>{{name}}</div>
+    </div>
+    <!-- vue没有挂载上div2节点 -->
+    <div id="div2">{{name}}</div>
+</body>
+
+</html>
