@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>属性绑定-双向绑定</title>
+    <script src="../node_modules/vue/dist/vue.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            var app = new Vue({
+                el: "#div1",
+                data: {//规定的数据写法
+                    message: "Hello World.",
+                    arr: [1, 2, 3, 4],
+                    title: "属性绑定",
+                    content: "xxx"
+                },
+                methods: {//规定的方法写法
+                    show: function () {
+                        console.log("show called.");
+                    },
+                    add: function () {
+                        console.log("add called.");
+                        this.arr.push(6);
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <!-- 属性绑定的写法，比如属性title -->
+        <button v-on:click="show" v-bind:title="title">打印</button>
+        <!-- 设置双向绑定。将文本输入框值与属性数据绑定且为双向绑定 -->
+        <input type="text" v-model="content" />{{content}}
+    </div>
+
+</body>
+
+</html>
