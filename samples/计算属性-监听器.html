@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性-监听器</title>
+    <script src="../node_modules/vue/dist/vue.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            var app = new Vue({
+                el: "#div1",
+                data: {//规定的数据写法
+                    message: "Hello World.",
+                    arr: [1, 2, 3, 4],
+                    name: "zhangsan"
+                },
+                methods: {//规定的方法写法
+                    show: function () {
+                        console.log("show called.");
+                    },
+                    add: function () {
+                        console.log("add called.");
+                        this.arr.push(6);
+                    },
+                    sum: function () {
+                        return this.sumResult;
+                    },
+                    change: function () {
+                        this.arr.push(10);
+                        this.name = "wangwu";
+                    }
+                },
+                computed: {//计算属性，是一个函数。这个函数用来计算处理。具有缓存的特点。
+                    sumResult: function () {
+                        console.log("sumResult function called " + new Date().toLocaleString());
+                        var sum = 0;
+                        for (var i = 0; i < this.arr.length; i++) {
+                            sum += this.arr[i];
+                        }
+                        return sum;
+                    }
+                },
+                watch: {//设置监听器。可以监听属性和计算属性。
+                    arr: function (newValue, oldValue) {
+                        console.log(newValue + "-" + oldValue);
+                    },
+                    sumResult: function (newValue, oldValue) {
+                        console.log(newValue + "-" + oldValue);
+                    },
+                    name: function (newValue, oldValue) {
+                        console.log(newValue + "-" + oldValue);
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <!-- 显示计算属性 -->
+        求和值： {{sumResult}}
+        <br/> 第二次执行，验证是否有缓存：{{sumResult}}
+        <br/> 第三次执行，通过方法读取计算属性的值，验证是否有缓存：{{sum()}}
+        <br/>
+        <!-- 当数据发生改变时，计算属性会重新计算，同时页面模板的数据也会同步更新 -->
+        <button v-on:click="change">改变数据</button>
+    </div>
+
+</body>
+
+</html>
